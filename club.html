@@ -1,11 +1,754 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Super Starter Football Club</title>
-</head>
-<body>
+    <title>Super Starter FC - TopCity-1</title>
+<link rel="stylesheet" href="clubstyles.css">
+    <!-- Fonts -->
     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+   </head>
+
+<body>
+
+    <!-- NAV -->
+    <header>
+        <div class="nav">
+            <div class="brand">
+                <div class=logo>
+                    <img src="logo.jpeg" alt="Drills"
+                        style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <div class="brand-text">
+                    <h3>Super Starter FC</h3>
+                    <p>TopCity-1 • Train Hard, Play Smart!</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li data-target="home" class="nav-link">Home</li>
+                    <li data-target="highlights" class="nav-link">Highlights</li>
+                    <li data-target="schedule" class="nav-link">Timetable</li>
+                    <li data-target="students" class="nav-link">Students</li>
+                    <li data-target="announcements" class="nav-link">News</li>
+                    
+                    <li data-target="join" class="nav-link">Join</li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- HERO SECTION -->
+        <section id="home" class="card fade-in-section">
+            <div class="hero-grid">
+                <div>
+                    <h1>Forge Your <span style="color:var(--accent-gold)">Legacy</span></h1>
+                    <p style="font-size:1.1rem; color:var(--text-muted);">Welcome to Super Starter Football Club. We
+                        teach young players the basics of football, teamwork, and confidence.</p>
+
+                    <div class="badges">
+                        <div>Est. 2021</div>
+                        <div>C-Block Ground</div>
+                        <div>Rs. 3,000 / month</div>
+                    </div>
+
+                    <div style="margin-top:2rem;">
+                        <h4 style="color:var(--accent-gold); margin-bottom:0.5rem;">HEAD COACH</h4>
+                        <div style="display:flex; gap:1rem; align-items:center;">
+                            <img src="aftab.jpeg"
+                                style="width:80px; height:80px; border-radius:50%; object-fit:cover; border:2px solid var(--accent-gold);"
+                                alt="Coach">
+                            <div>
+                                <h4>M. Aftab Afzal</h4>
+                                <p style="font-size:0.9rem; color:var(--text-muted);">Expert in technically skilled
+                                    youth development.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SIDEBAR -->
+                <aside style="background: rgba(255,255,255,0.03); padding:1.5rem; border-radius:10px;">
+                    <h4 style="border-bottom:1px solid var(--border-light); padding-bottom:0.5rem; margin-bottom:1rem;">
+                        Quick Actions</h4>
+                    <p style="color:var(--accent-gold); margin-bottom:1rem; font-size:0.9rem;">
+                        Next Practice: <br> <span style="color:#fff">U-12 • Mon & Wed • 4:00pm</span>
+                    </p>
+                    <button class="btn" style="width:100%; margin-bottom:0.5rem;"
+                        onclick="scrollToSection('join')">Register Now</button>
+
+                    <h4 style="margin-top:2rem; margin-bottom:0.5rem;">Latest Announcement</h4>
+                    <div id="ann-preview"
+                        style="background:rgba(251, 191, 36, 0.1); padding:1rem; border-radius:6px; font-size:0.9rem;">
+                        Loading...
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+
+<!-- HIGHLIGHTS SECTION -->
+        <section id="highlights" class="card fade-in-section">
+            <h2>Club Highlights</h2>
+            <p style="color:var(--text-muted); margin-bottom:1.5rem;">A glimpse into our training and events.</p>
+
+            <div class="highlights-scroll">
+                <!-- Placeholders: Users can replace src with their own images -->
+                <div class="highlight-card">
+                    <img src="b1.jpeg" alt="Match Day"
+                        style="width:100%; height:100%; object-fit:cover;">
+                    <div class="highlight-caption">Match Day Glory</div>
+                </div>
+                <div class="highlight-card">
+                    <img src="a9.jpeg" alt="Training"
+                        style="width:100%; height:100%; object-fit:cover;">
+                    <div class="highlight-caption">Speed Training</div>
+                </div>
+                <div class="highlight-card">
+                    <img src="a3.jpeg" alt="Tournament"
+                        style="width:100%; height:100%; object-fit:cover;">
+                    <div class="highlight-caption">Annual Tournament</div>
+                </div>
+                <div class="highlight-card">
+                    <img src="a4.jpeg" alt="Goalkeeper Session"
+                        style="width:100%; height:100%; object-fit:cover;">
+                    <div class="highlight-caption">Goalkeeper Session</div>
+                </div>
+                <div class="highlight-card">
+                    <img src="a5.jpeg" alt="Team Building"
+                        style="width:100%; height:100%; object-fit:cover;">
+                    <div class="highlight-caption">Team Building</div>
+                </div>
+                <div class="highlight-card">
+                    <img src="a6.jpeg" alt="Drills"
+                        style="width:100%; height:100%; object-fit:cover;">
+                    <div class="highlight-caption">Precision Drills</div>
+                </div>
+                <div class="highlight-card">
+                    <img src="a2.jpeg" alt="Drills"
+                        style="width:100%; height:100%; object-fit:cover;">
+                    <div class="highlight-caption">Victory Celebration</div>
+                </div>
+                <div class="highlight-card">
+                    <img src="b5.jpeg" alt="Drills"
+                        style="width:100%; height:100%; object-fit:cover;">
+                    <div class="highlight-caption">Hiking Plan</div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- SCHEDULE -->
+        <section id="schedule" class="card fade-in-section">
+            <h2>Weekly Timetable</h2>
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:2rem;">
+                <div>
+                    <h4 style="color:var(--accent-gold)">Under-10</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Monday</td>
+                                <td>4:00pm - 5:00pm</td>
+                            </tr>
+                            <tr>
+                                <td>Wednesday</td>
+                                <td>4:00pm - 5:00pm</td>
+                            </tr>
+                            <tr>
+                                <td>Friday</td>
+                                <td>4:00pm - 5:00pm</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <h4 style="color:var(--accent-gold)">Under-14</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Tuesday</td>
+                                <td>5:00pm - 6:30pm</td>
+                            </tr>
+                            <tr>
+                                <td>Thursday</td>
+                                <td>5:00pm - 6:30pm</td>
+                            </tr>
+                            <tr>
+                                <td>Saturday</td>
+                                <td>5:00pm - 6:30pm</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- STUDENTS LIST -->
+        <section id="students" class="card fade-in-section">
+            <div style="display:flex; justify-content:space-between; flex-wrap:wrap; align-items:center;">
+                <h2>Club Members</h2>
+                <div style="display:flex; flex-direction: column; gap: 0.5rem; align-items: flex-end;">
+                    <div style="display:flex; gap:0.5rem;">
+                        <input id="searchInput" placeholder="Search members..." oninput="renderStudents()"
+                            style="width:200px; margin:0;">
+                        <select id="filterPaid" onchange="renderStudents()" style="width:120px; margin:0;">
+                            <option value="all">Status: All</option>
+                            <option value="paid">Paid</option>
+                            <option value="unpaid">Unpaid</option>
+                        </select>
+                    </div>
+                    <button id="openAdminBtn" class="cta" style="font-size: 0.8rem; padding: 0.4rem 1rem;">Admin
+                        Panel</button>
+                </div>
+            </div>
+
+            <div style="overflow-x:auto; margin-top:1.5rem;">
+                <table id="studentsTable">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>Guardian</th>
+                            <th>Contact</th>
+                            <th>Exp</th>
+                            <th>Fee Status</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ANNOUNCEMENTS SECTION -->
+        <section id="announcements" class="card fade-in-section">
+            <h2>Club Announcements</h2>
+            <div id="allAnnouncementsList" style="display:flex; flex-direction:column; gap:1rem; margin-top:1.5rem;">
+                <!-- Announcements will be rendered here -->
+            </div>
+        </section>
+
+        
+
+        <!-- JOIN FORM -->
+        <section id="join" class="card fade-in-section">
+            <h2>Join The Club</h2>
+            <p style="color:var(--text-muted); margin-bottom:1.5rem;">Become a part of the legacy. Fill out the form
+                below.</p>
+
+            <form id="regForm" onsubmit="handleRegister(event)">
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem;">
+                    <input id="fullName" placeholder="Full Player Name" required>
+                    <input id="age" placeholder="Age" required type="number" min="4" max="20">
+                    <input id="guardian" placeholder="Guardian Name" required>
+                    <input id="contact" placeholder="Contact Number" required>
+                </div>
+                <textarea id="experience" placeholder="Previous Football Experience (Optional)" rows="3"
+                    style="margin-top:1rem;"></textarea>
+
+                <div style="margin-top:1.5rem; display:flex; gap:1rem;">
+                    <button class="btn" type="submit">Submit Applications</button>
+                    <button class="btn-muted" type="button"
+                        onclick="document.getElementById('regForm').reset()">Reset</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="card fade-in-section" style="text-align:center;">
+            <h2>Contact & Fees</h2>
+            <div style="display:flex; justify-content:center; gap:3rem; flex-wrap:wrap; margin-top:2rem;">
+                <div>
+                    <h4 style="color:var(--accent-gold)">Location</h4>
+                    <p>C-Block Ground, TopCity-1</p>
+                </div>
+                <div>
+                    <h4 style="color:var(--accent-gold)">Direct Contact</h4>
+                    <p>0344-9058671 (Phone/WhatsApp)</p>
+                    <p>xyz@gmail.com</p>
+                </div>
+                <div>
+                    <h4 style="color:var(--accent-gold)">Payment</h4>
+                    <p>Easypaisa: 0344-9058671</p>
+                    <p class="unpaid">Due: 10th of each month</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer
+        style="text-align:center; padding:2rem; color:var(--text-muted); border-top:1px solid var(--border-light); margin-top:2rem;">
+        <p>© 2024 Super Starter Football Club. Built with ❤️ by Hafiz Inam Rana +923040192075.</p>
+    </footer>
+
+    <!-- ADMIN MODAL -->
+    <div id="modalBackdrop" class="modal-backdrop">
+        <div class="modal">
+            <div style="display:flex; justify-content:space-between; margin-bottom:2rem;">
+                <h3 style="color:var(--accent-gold)">Admin Panel</h3>
+                <button id="closeAdminBtn" class="btn-muted">Close X</button>
+            </div>
+
+            <!-- LOGIN -->
+            <div id="loginBox">
+                <p>Enter credentials to access student management.</p>
+                <div style="display:flex; gap:1rem; margin-top:1rem;">
+                    <input id="adminUser" placeholder="Username">
+                    <input id="adminPass" placeholder="Password" type="password">
+                    <button class="btn" id="doLoginBtn">Login</button>
+                </div>
+                <p style="font-size:0.8rem; color:var(--text-muted); margin-top:0.5rem;">Default: admin / topcity1</p>
+            </div>
+
+            <!-- DASHBOARD -->
+            <div id="dashboard" class="hidden">
+                <div style="display:flex; gap:1rem; margin-bottom:1.5rem;">
+                    <button class="btn" id="btnAddStudent">Add Student</button>
+                    <button class="btn" id="btnAnnouncements">Announcements</button>
+                    <button class="btn" id="btnApprovals">Approvals</button>
+                    <button class="btn-muted" id="btnLogout">Logout</button>
+                </div>
+                <div id="adminContent" style="background:rgba(0,0,0,0.2); padding:1rem; border-radius:8px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LOGIC SCRIPT (Preserved & Enhanced) -->
+    <script>
+        /* --- 1. ANIMATIONS (New Modern Feature) --- */
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in-section').forEach(el => observer.observe(el));
+
+        /* --- 2. USER'S LOGIC (Preserved) --- */
+        const KEY_STUDENTS = 'ssf_students_v2';
+        const KEY_PENDING = 'ssf_pending_v2';
+        const KEY_ANN = 'ssf_ann_v2';
+        const DEFAULT_ADMIN = { user: 'admin', pass: 'topcity1' };
+
+        const SAMPLE_STUDENTS = [
+            { full: 'Ali Khan', age: 9, guardian: 'Aisha Khan', contact: '03001234567', experience: '1 year', paid: true },
+            { full: 'Sara Ahmed', age: 11, guardian: 'Naveed Ahmed', contact: '03011234567', experience: 'None', paid: false },
+            { full: 'Usman Riaz', age: 13, guardian: 'Riaz Khan', contact: '03021234567', experience: 'Played in school', paid: true },
+            { full: 'Bilal Shah', age: 14, guardian: 'Shahzad', contact: '03061234567', experience: 'School team', paid: true },
+        ];
+
+        const SAMPLE_ANN = [{ id: Date.now(), title: 'Welcome to Super Starter FC!', text: 'Club practice starts next week. Stay tuned for gala match dates.' }];
+
+        if (!localStorage.getItem(KEY_STUDENTS)) localStorage.setItem(KEY_STUDENTS, JSON.stringify(SAMPLE_STUDENTS));
+        if (!localStorage.getItem(KEY_ANN)) localStorage.setItem(KEY_ANN, JSON.stringify(SAMPLE_ANN));
+
+        // Navigation
+        function scrollToSection(id) {
+            const s = document.getElementById(id);
+            if (s) s.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        document.querySelectorAll('.nav-link').forEach(el => {
+            el.addEventListener('click', () => scrollToSection(el.getAttribute('data-target')));
+        });
+
+        // Admin Modal
+        const modal = document.getElementById('modalBackdrop');
+        document.getElementById('openAdminBtn').addEventListener('click', () => {
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // FIX: Prevent background scroll
+            if (localStorage.getItem('ssf_admin_logged') === '1') showDashboard();
+            else showLogin();
+        });
+        document.getElementById('closeAdminBtn').addEventListener('click', () => {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // FIX: Restore scroll
+        });
+
+        // Students & Data
+        function readStudents() { return JSON.parse(localStorage.getItem(KEY_STUDENTS) || '[]'); }
+        function writeStudents(arr) { localStorage.setItem(KEY_STUDENTS, JSON.stringify(arr)); }
+
+        function renderStudents() {
+            const q = (document.getElementById('searchInput').value || '').toLowerCase();
+            const filter = document.getElementById('filterPaid').value;
+            const students = readStudents();
+            const tbody = document.querySelector('#studentsTable tbody');
+            tbody.innerHTML = '';
+
+            students.forEach((s, i) => {
+                if (filter === 'paid' && !s.paid) return;
+                if (filter === 'unpaid' && s.paid) return;
+                const hay = (s.full + ' ' + s.guardian + ' ' + (s.contact || '')).toLowerCase();
+                if (q && !hay.includes(q)) return;
+
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${i + 1}</td>
+                    <td style="font-weight:600; color:white;">${s.full}</td>
+                    <td>${s.age}</td>
+                    <td>${s.guardian}</td>
+                    <td>${s.contact}</td>
+                    <td>${s.experience || '-'}</td>
+                    <td class="${s.paid ? 'paid' : 'unpaid'}">${s.paid ? 'PAID' : 'UNPAID'}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function togglePaid(index) {
+            const arr = readStudents();
+            if (!arr[index]) return;
+            arr[index].paid = !arr[index].paid;
+            writeStudents(arr);
+            renderStudents();
+            renderAdminStudents(); // refresh admin if open
+        }
+
+        function handleRegister(e) {
+            e.preventDefault();
+            const full = document.getElementById('fullName').value.trim();
+            const age = Number(document.getElementById('age').value);
+            const guardian = document.getElementById('guardian').value.trim();
+            const contact = document.getElementById('contact').value.trim();
+            const exp = document.getElementById('experience').value.trim();
+
+            const arr = readPending();
+            arr.push({ full, age, guardian, contact, experience: exp, paid: false, id: Date.now() });
+            writePending(arr);
+            document.getElementById('regForm').reset();
+            alert('Application submitted! Pending admin approval.');
+        }
+
+        // Admin Logic
+        document.getElementById('doLoginBtn').addEventListener('click', () => {
+            const u = document.getElementById('adminUser').value.trim();
+            const p = document.getElementById('adminPass').value.trim();
+            if (u === DEFAULT_ADMIN.user && p === DEFAULT_ADMIN.pass) {
+                localStorage.setItem('ssf_admin_logged', '1');
+                document.getElementById('adminPass').value = ''; // Clean up
+                showDashboard();
+            } else {
+                alert('Invalid Credentials');
+            }
+        });
+
+        document.getElementById('btnLogout').addEventListener('click', () => {
+            localStorage.removeItem('ssf_admin_logged');
+            showLogin();
+        });
+
+        function showLogin() {
+            document.getElementById('loginBox').classList.remove('hidden');
+            document.getElementById('dashboard').classList.add('hidden');
+        }
+        function showDashboard() {
+            document.getElementById('loginBox').classList.add('hidden');
+            document.getElementById('dashboard').classList.remove('hidden');
+            renderAdminStudents();
+        }
+
+        function renderAdminStudents() {
+            const arr = readStudents();
+            const cont = document.getElementById('adminContent');
+            cont.innerHTML = '<h4 style="margin-bottom:1rem; color:var(--accent-gold);">Manage Students</h4>';
+
+            const div = document.createElement('div');
+            div.style.overflowX = 'auto'; // FIX: Prevent overflow
+
+            const tbl = document.createElement('table');
+            tbl.innerHTML = `<thead><tr><th>Name</th><th>Paid</th><th>Actions</th></tr></thead>`;
+            const tb = document.createElement('tbody');
+
+            arr.forEach((s, i) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${s.full}</td>
+                    <td class="${s.paid ? 'paid' : 'unpaid'}">${s.paid ? 'Yes' : 'No'}</td>
+                    <td style="display:flex; gap:0.5rem;">
+                        <button class="btn" style="font-size:0.7rem; padding:0.3rem 0.6rem;" onclick="editStudent(${i})">Edit</button>
+                        <button class="btn-muted" style="font-size:0.7rem; padding:0.3rem 0.6rem;" onclick="deleteStudent(${i})">Delete</button>
+                    </td>`;
+                tb.appendChild(row);
+            });
+            tbl.appendChild(tb);
+            div.appendChild(tbl);
+            cont.appendChild(div);
+        }
+
+        // --- NEW: Add Student Logic ---
+        document.getElementById('btnAddStudent').addEventListener('click', showAddStudent);
+
+        function showAddStudent() {
+            const cont = document.getElementById('adminContent');
+            cont.innerHTML = `<h4 style="color:var(--accent-gold); margin-bottom:1rem;">Add New Student</h4>
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem; margin-bottom:1rem;">
+                <input id="a_full" placeholder="Full Name">
+                <input id="a_age" placeholder="Age" type="number">
+                <input id="a_guardian" placeholder="Guardian">
+                <input id="a_contact" placeholder="Contact">
+            </div>
+            <select id="a_paid"><option value="false">Status: Unpaid</option><option value="true">Status: Paid</option></select>
+            <div style="margin-top:1rem; display:flex; gap:1rem;">
+                <button class="btn" onclick="addStudent()">Add Student</button> 
+                <button class="btn-muted" onclick="renderAdminStudents()">Cancel</button>
+            </div>`;
+        }
+
+        function addStudent() {
+            const full = document.getElementById('a_full').value.trim();
+            const age = Number(document.getElementById('a_age').value);
+            const guardian = document.getElementById('a_guardian').value.trim();
+            const contact = document.getElementById('a_contact').value.trim();
+            const paid = (document.getElementById('a_paid').value === 'true');
+
+            if (!full || !guardian) { alert('Name and Guardian are required'); return; }
+
+            const arr = readStudents();
+            arr.push({ full, age: age || 0, guardian, contact, experience: '', paid });
+            writeStudents(arr);
+            renderAdminStudents();
+            renderStudents(); // Update main list
+            alert('Student Added');
+        }
+
+        // --- NEW: Edit Student Logic ---
+        function editStudent(index) {
+            const arr = readStudents();
+            const s = arr[index];
+            const cont = document.getElementById('adminContent');
+            cont.innerHTML = `<h4 style="color:var(--accent-gold); margin-bottom:1rem;">Edit Student</h4>
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem; margin-bottom:1rem;">
+                <input id="e_full" value="${s.full}" placeholder="Full Name">
+                <input id="e_age" value="${s.age}" placeholder="Age" type="number">
+                <input id="e_guardian" value="${s.guardian}" placeholder="Guardian">
+                <input id="e_contact" value="${s.contact}" placeholder="Contact">
+            </div>
+            <select id="e_paid"><option value="true">Status: Paid</option><option value="false">Status: Unpaid</option></select>
+            <div style="margin-top:1rem; display:flex; gap:1rem;">
+                <button class="btn" onclick="saveEdit(${index})">Save Changes</button> 
+                <button class="btn-muted" onclick="renderAdminStudents()">Cancel</button>
+            </div>`;
+            document.getElementById('e_paid').value = s.paid ? 'true' : 'false';
+        }
+
+        function saveEdit(index) {
+            const arr = readStudents();
+            arr[index].full = document.getElementById('e_full').value.trim();
+            arr[index].age = Number(document.getElementById('e_age').value);
+            arr[index].guardian = document.getElementById('e_guardian').value.trim();
+            arr[index].contact = document.getElementById('e_contact').value.trim();
+            arr[index].paid = (document.getElementById('e_paid').value === 'true');
+            writeStudents(arr);
+            renderAdminStudents();
+            renderStudents();
+            alert('Changes Saved');
+        }
+
+        function deleteStudent(index) {
+            if (!confirm('Delete this student?')) return;
+            const arr = readStudents();
+            arr.splice(index, 1);
+            writeStudents(arr);
+            renderAdminStudents();
+            renderStudents();
+        }
+
+        // --- NEW: Announcements Logic ---
+        document.getElementById('btnAnnouncements').addEventListener('click', showAnnouncements);
+
+        function showAnnouncements() {
+            const cont = document.getElementById('adminContent');
+            cont.innerHTML = `<h4 style="color:var(--accent-gold); margin-bottom:1rem;">Manage Announcements</h4>
+            <input id="ann_text" placeholder="Announcement Text" style="margin-bottom:1rem;">
+            <div style="margin-bottom:1rem; display:flex; gap:1rem;">
+                <button class="btn" onclick="addAnnouncement()">Post</button>
+                <button class="btn-muted" onclick="renderAdminStudents()">Back</button>
+            </div>
+            <div id="annListAdmin"></div>`;
+            renderAnnListAdmin();
+        }
+
+        function addAnnouncement() {
+            const txt = document.getElementById('ann_text').value.trim();
+            if (!txt) return;
+            const arr = readAnns();
+            arr.unshift({ id: Date.now(), text: txt }); // Simple text only for now
+            localStorage.setItem(KEY_ANN, JSON.stringify(arr));
+            showAnnouncements(); // Refresh
+            renderAnnouncements(); // Update main site
+        }
+
+        function renderAnnListAdmin() {
+            const arr = readAnns();
+            const box = document.getElementById('annListAdmin');
+            box.innerHTML = '';
+            arr.forEach((a, i) => {
+                const el = document.createElement('div');
+                el.style.borderBottom = '1px solid var(--border-light)';
+                el.style.padding = '0.5rem 0';
+                el.style.display = 'flex';
+                el.style.justifyContent = 'space-between';
+                el.innerHTML = `<span>${a.text}</span> <button class="btn-muted" style="font-size:0.7rem;" onclick="deleteAnn(${i})">Delete</button>`;
+                box.appendChild(el);
+            });
+        }
+
+        function deleteAnn(i) {
+            const arr = readAnns();
+            arr.splice(i, 1);
+            localStorage.setItem(KEY_ANN, JSON.stringify(arr));
+            renderAnnListAdmin();
+            renderAnnouncements();
+        }
+
+        // Announcements Main
+        function readAnns() { return JSON.parse(localStorage.getItem(KEY_ANN) || '[]'); }
+        function renderAnnouncements() {
+            const anns = readAnns();
+            // Sidebar Preview
+            const preview = document.getElementById('ann-preview');
+            preview.innerText = anns.length ? anns[0].text : 'No active announcements.';
+
+            // Full List
+            const list = document.getElementById('allAnnouncementsList');
+            if (list) {
+                list.innerHTML = '';
+                if (anns.length === 0) {
+                    list.innerHTML = '<p style="color:var(--text-muted);">No announcements yet.</p>';
+                } else {
+                    anns.forEach(a => {
+                        const date = new Date(a.id).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
+                        const div = document.createElement('div');
+                        div.style.background = 'rgba(255,255,255,0.03)';
+                        div.style.padding = '1.5rem';
+                        div.style.borderRadius = '8px';
+                        div.style.borderLeft = '4px solid var(--accent-gold)';
+                        div.innerHTML = `
+                            <p style="font-size:0.85rem; color:var(--accent-gold); margin-bottom:0.5rem;">${date}</p>
+                            <p style="font-size:1.1rem; line-height:1.5;">${a.text}</p>
+                        `;
+                        list.appendChild(div);
+                    });
+                }
+            }
+        }
+
+        // --- NEW: Approvals Logic ---
+        function readPending() { return JSON.parse(localStorage.getItem(KEY_PENDING) || '[]'); }
+        function writePending(arr) { localStorage.setItem(KEY_PENDING, JSON.stringify(arr)); }
+
+        document.getElementById('btnApprovals').addEventListener('click', showApprovals);
+
+        function showApprovals() {
+            const arr = readPending();
+            const cont = document.getElementById('adminContent');
+            cont.innerHTML = `<h4 style="color:var(--accent-gold); margin-bottom:1rem;">Pending Approvals</h4>`;
+
+            if (arr.length === 0) {
+                cont.innerHTML += '<p>No pending applications.</p>';
+                return;
+            }
+
+            const div = document.createElement('div');
+            div.style.overflowX = 'auto';
+            const tbl = document.createElement('table');
+            tbl.innerHTML = `<thead><tr><th>Name</th><th>Details</th><th>Actions</th></tr></thead>`;
+            const tb = document.createElement('tbody');
+
+            arr.forEach((s, i) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${s.full} (${s.age})</td>
+                    <td style="font-size:0.9rem;">
+                        Parent: ${s.guardian}<br>
+                        Contact: ${s.contact}<br>
+                        Exp: ${s.experience || 'None'}
+                    </td>
+                    <td style="display:flex; gap:0.5rem; flex-direction:column;">
+                        <button class="btn" style="font-size:0.7rem; padding:0.3rem 0.6rem; background:var(--accent-green);" onclick="approveStudent(${i})">Approve</button>
+                        <button class="btn" style="font-size:0.7rem; padding:0.3rem 0.6rem; background:var(--accent-red);" onclick="rejectStudent(${i})">Reject</button>
+                    </td>`;
+                tb.appendChild(row);
+            });
+            tbl.appendChild(tb);
+            div.appendChild(tbl);
+            cont.appendChild(div);
+        }
+
+        function approveStudent(index) {
+            const pending = readPending();
+            const students = readStudents();
+            const s = pending[index];
+
+            // Move to main list
+            students.push({
+                full: s.full,
+                age: s.age,
+                guardian: s.guardian,
+                contact: s.contact,
+                experience: s.experience,
+                paid: false
+            });
+
+            pending.splice(index, 1);
+
+            writeStudents(students);
+            writePending(pending);
+
+            renderStudents(); // Update public list
+            showApprovals(); // Refresh UI
+            alert(`Approved ${s.full}`);
+        }
+
+        function rejectStudent(index) {
+            if (!confirm('Reject this application?')) return;
+            const pending = readPending();
+            pending.splice(index, 1);
+            writePending(pending);
+            showApprovals();
+        }
+
+        // Expose to window for inline HTML onclicks
+        window.scrollToSection = scrollToSection;
+        window.renderStudents = renderStudents;
+        window.togglePaid = togglePaid;
+        window.handleRegister = handleRegister;
+        window.deleteStudent = deleteStudent;
+        window.editStudent = editStudent;
+        window.saveEdit = saveEdit;
+        window.addStudent = addStudent;
+        window.addAnnouncement = addAnnouncement;
+        window.deleteAnn = deleteAnn;
+        window.approveStudent = approveStudent;
+        window.rejectStudent = rejectStudent;
+
+        // Init
+        renderStudents();
+        renderAnnouncements();
+    </script>
 </body>
+
 </html>
