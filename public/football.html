@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Starter FC - TopCity-1</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- DESIGN SYSTEM (Dark & Gold) --- */
+        :root {
+            --bg-dark: #020c1b;
+            --bg-card: rgba(10, 25, 47, 0.85);
+            /* Glassy dark */
+            --text-main: #e6f1ff;
+            --text-muted: #8892b0;
+            --accent-gold: #fbbf24;
+            --accent-green: #34d399;
+            /* Neon green for Paid */
+            --accent-red: #f87171;
+            /* Neon red for Unpaid */
+            --font-main: 'Outfit', sans-serif;
+            --border-light: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            background-image: radial-gradient(circle at 100% 0%, #112240 0%, #020c1b 50%);
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* --- NAVIGATION --- */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(2, 12, 27, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-light);
+            padding: 1rem 0;
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent-gold), #b45309);
+            color: #000;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-size: 1.2rem;
+        }
+
+        .brand-text h3 {
+            font-size: 1.2rem;
+            margin: 0;
+            letter-spacing: 0.5px;
+        }
+
+        .brand-text p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-link {
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--text-muted);
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-gold);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 0;
+            height: 2px;
+            background: var(--accent-gold);
+            transition: 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .cta {
+            background: transparent;
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .cta:hover {
+            background: var(--accent-gold);
+            color: #000;
+        }
+
+        /* --- LAYOUT --- */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 5%;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        /* --- CARDS (Glassmorphism) --- */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-gold);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.7);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            color: var(--text-main);
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+        }
+
+        h3,
+        h4 {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .badges {
+            display: flex;
+            gap: 1rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+
+        .badges div {
+            background: rgba(251, 191, 36, 0.1);
+            color: var(--accent-gold);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            border: 1px solid rgba(251, 191, 36, 0.2);
+            font-size: 0.9rem;
+        }
+
+        /* --- TABLES (Admin/Students) --- */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        thead {
+            background: rgba(255, 255, 255, 0.05);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        th,
+        td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        th {
+            color: var(--accent-gold);
+        }
+
+        tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .paid {
+            color: var(--accent-green);
+            font-weight: bold;
+        }
+
+        .unpaid {
+            color: var(--accent-red);
+            font-weight: bold;
+        }
+
+        /* --- FORMS & INPUTS --- */
+        input,
+        select,
+        textarea {
+            width: 100%;
+            background: rgba(2, 12, 27, 0.5);
+            border: 1px solid var(--border-light);
+            padding: 0.8rem;
+            border-radius: 6px;
+            color: var(--text-main);
+            font-family: inherit;
+            margin-bottom: 0.5rem;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+        }
+
+        button.btn {
+            background: var(--accent-gold);
+            color: #000;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 700;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        button.btn:hover {
+            background: #fff;
+        }
+
+        button.btn-muted {
+            background: transparent;
+            border: 1px solid var(--text-muted);
+            color: var(--text-muted);
+            padding: 0.6rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button.btn-muted:hover {
+            border-color: #fff;
+            color: #fff;
+        }
+
+        /* --- ADMIN MODAL --- */
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+        }
+
+        .modal {
+            width: 800px;
+            max-width: 90%;
+            background: #0a192f;
+            border: 1px solid var(--accent-gold);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+            max-height: 90vh;
+            /* FIX: Limit height */
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* FIX: Scoped scroll for dashboard content */
+        #dashboard {
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        #dashboard.hidden {
+            display: none;
+        }
+
+        #adminContent {
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* --- ANIMATIONS --- */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* --- GALLERY GRID --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .gallery-item {
+            height: 150px;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            color: var(--text-muted);
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+    <style>
+        /* --- HIGHLIGHTS SCROLL --- */
+        .highlights-scroll {
+            display: flex;
+            overflow-x: auto;
+            gap: 1.5rem;
+            padding: 1rem 0;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            /* smooth scroll iOS */
+        }
+
+        .highlights-scroll::-webkit-scrollbar {
+            height: 8px;
+            /* Horizontal scrollbar height */
+        }
+
+        .highlights-scroll::-webkit-scrollbar-thumb {
+            background: var(--accent-gold);
+            border-radius: 4px;
+        }
+
+        .highlight-card {
+            flex: 0 0 300px;
+            /* Fixed width cards */
+            height: 200px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            scroll-snap-align: start;
+            display: flex;
+            /* alignment for placeholder text */
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border-light);
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            flex-direction: column;
+        }
+
+        .highlight-card:hover {
+            transform: scale(1.02);
+            border-color: var(--accent-gold);
+        }
+
+        .highlight-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 0.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: white;
+        }
+
+        /* --- WHATSAPP BUTTON --- */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: #25d366;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-btn img {
+            width: 35px;
+            height: 35px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- WHATSAPP FLOATING BUTTON -->
+    <a href="https://wa.me/923449058671" target="_blank" class="whatsapp-btn" title="Chat with us">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+
+    <!-- NAV -->
+    <header>
+        <div class="nav">
+            <div class="brand">
+                <div class="logo">SF</div>
+                <div class="brand-text">
+                    <h3>Super Starter FC</h3>
+                    <p>TopCity-1 • Train Hard, Play Smart!</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li data-target="home" class="nav-link">Home</li>
+                    <li data-target="schedule" class="nav-link">Timetable</li>
+                    <li data-target="students" class="nav-link">Students</li>
+                    <li data-target="announcements" class="nav-link">News</li>
+                    <li data-target="highlights" class="nav-link">Highlights</li>
+                    <li data-target="join" class="nav-link">Join</li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- HERO SECTION -->
+        <section id="home" class="card fade-in-section">
+            <div class="hero-grid">
+                <div>
+                    <h1>Forge Your <span style="color:var(--accent-gold)">Legacy</span></h1>
+                    <p style="font-size:1.1rem; color:var(--text-muted);">Welcome to Super Starter Football Club. We
+                        teach young players the basics of football, teamwork, and confidence.</p>
+
+                    <div class="badges">
+                        <div>Est. 2021</div>
+                        <div>C-Block Ground</div>
+                        <div>Rs. 3,000 / month</div>
+                    </div>
+
+                    <div style="margin-top:2rem;">
+                        <h4 style="color:var(--accent-gold); margin-bottom:0.5rem;">HEAD COACH</h4>
+                        <div style="display:flex; gap:1rem; align-items:center;">
+                            <img src="aftab.jpeg"
+                                style="width:80px; height:80px; border-radius:50%; object-fit:cover; border:2px solid var(--accent-gold);"
+                                alt="Coach">
+                            <div>
+                                <h4>Aftab Iqbal</h4>
+                                <p style="font-size:0.9rem; color:var(--text-muted);">Expert in technically skilled
+                                    youth development.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SIDEBAR -->
+                <aside style="background: rgba(255,255,255,0.03); padding:1.5rem; border-radius:10px;">
+                    <h4 style="border-bottom:1px solid var(--border-light); padding-bottom:0.5rem; margin-bottom:1rem;">
+                        Quick Actions</h4>
+                    <p style="color:var(--accent-gold); margin-bottom:1rem; font-size:0.9rem;">
+                        Next Practice: <br> <span style="color:#fff">U-12 • Mon & Wed • 4:00pm</span>
+                    </p>
+                    <button class="btn" style="width:100%; margin-bottom:0.5rem;"
+                        onclick="scrollToSection('join')">Register Now</button>
+
+                    <h4 style="margin-top:2rem; margin-bottom:0.5rem;">Latest Announcement</h4>
+                    <div id="ann-preview"
+                        style="background:rgba(251, 191, 36, 0.1); padding:1rem; border-radius:6px; font-size:0.9rem;">
+                        Loading...
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <!-- SCHEDULE -->
+        <section id="schedule" class="card fade-in-section">
+            <h2>Weekly Timetable</h2>
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:2rem;">
+                <div>
+                    <h4 style="color:var(--accent-gold)">Under-10</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Monday</td>
+                                <td>4:00pm - 5:00pm</td>
+                            </tr>
+                            <tr>
+                                <td>Wednesday</td>
+                                <td>4:00pm - 5:00pm</td>
+                            </tr>
+                            <tr>
+                                <td>Friday</td>
+                                <td>4:00pm - 5:00pm</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <h4 style="color:var(--accent-gold)">Under-14</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Tuesday</td>
+                                <td>5:00pm - 6:30pm</td>
+                            </tr>
+                            <tr>
+                                <td>Thursday</td>
+                                <td>5:00pm - 6:30pm</td>
+                            </tr>
+                            <tr>
+                                <td>Saturday</td>
+                                <td>5:00pm - 6:30pm</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- STUDENTS LIST -->
+        <section id="students" class="card fade-in-section">
+            <div style="display:flex; justify-content:space-between; flex-wrap:wrap; align-items:center;">
+                <h2>Club Members</h2>
+                <div style="display:flex; flex-direction: column; gap: 0.5rem; align-items: flex-end;">
+                    <div style="display:flex; gap:0.5rem;">
+                        <input id="searchInput" placeholder="Search members..." oninput="renderStudents()"
+                            style="width:200px; margin:0;">
+                        <select id="filterPaid" onchange="renderStudents()" style="width:120px; margin:0;">
+                            <option value="all">Status: All</option>
+                            <option value="paid">Paid</option>
+                            <option value="unpaid">Unpaid</option>
+                        </select>
+                    </div>
+                    <button id="openAdminBtn" class="cta" style="font-size: 0.8rem; padding: 0.4rem 1rem;">Admin
+                        Panel</button>
+                </div>
+            </div>
+
+            <div style="overflow-x:auto; margin-top:1.5rem;">
+                <table id="studentsTable">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>Guardian</th>
+                            <th>Contact</th>
+                            <th>Exp</th>
+                            <th>Fee Status</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ANNOUNCEMENTS SECTION -->
+        <section id="announcements" class="card fade-in-section">
+            <h2>Club Announcements</h2>
+            <div id="allAnnouncementsList" style="display:flex; flex-direction:column; gap:1rem; margin-top:1.5rem;">
+                <!-- Announcements will be rendered here -->
+            </div>
+        </section>
+
+        <!-- HIGHLIGHTS SECTION -->
+        <section id="highlights" class="card fade-in-section">
+            <h2>Club Highlights</h2>
+            <p style="color:var(--text-muted); margin-bottom:1.5rem;">A glimpse into our training and events.</p>
+
+            <div class="highlights-scroll">
+                <!-- Placeholders: Users can replace src with their own images -->
+                <div class="highlight-card">
+                    <img src="a1.jpeg" alt="Match Day"
+                        style="width:100%; height:100%; object-fit:cover;">
+                    <div class="highlight-caption">Match Day Glory</div>
+                </div>
+                <div class="highlight-card">
+                    <img src="a2.jpeg" alt="Training"
+                        style="width:100%; height:100%; object-fit:cover;">
+                    <div class="highlight-caption">Speed Training</div>
+                </div>
+                <div class="highlight-card">
+                    <img src="a3.jpeg" alt="Tournament"
+                        style="width:100%; height:100%; object-fit:cover;">
+                    <div class="highlight-caption">Annual Tournament</div>
+                </div>
+                <div class="highlight-card">
+                    <img src="a4.jpeg" alt="Goalkeeper Session"
+                        style="width:100%; height:100%; object-fit:cover;">
+                    <div class="highlight-caption">Goalkeeper Session</div>
+                </div>
+                <div class="highlight-card">
+                    <img src="a5.jpeg" alt="Team Building"
+                        style="width:100%; height:100%; object-fit:cover;">
+                    <div class="highlight-caption">Team Building</div>
+                </div>
+                <div class="highlight-card">
+                    <img src="a6.jpeg" alt="Drills"
+                        style="width:100%; height:100%; object-fit:cover;">
+                    <div class="highlight-caption">Precision Drills</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- JOIN FORM -->
+        <section id="join" class="card fade-in-section">
+            <h2>Join The Club</h2>
+            <p style="color:var(--text-muted); margin-bottom:1.5rem;">Become a part of the legacy. Fill out the form
+                below.</p>
+
+            <form id="regForm" onsubmit="handleRegister(event)">
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem;">
+                    <input id="fullName" placeholder="Full Player Name" required>
+                    <input id="age" placeholder="Age" required type="number" min="4" max="20">
+                    <input id="guardian" placeholder="Guardian Name" required>
+                    <input id="contact" placeholder="Contact Number" required>
+                    <input id="email" type="email" placeholder="Email Address" required>
+                </div>
+                <textarea id="experience" placeholder="Previous Football Experience (Optional)" rows="3"
+                    style="margin-top:1rem;"></textarea>
+
+                <div style="margin-top:1.5rem; display:flex; gap:1rem;">
+                    <button class="btn" type="submit">Submit Applications</button>
+                    <button class="btn-muted" type="button"
+                        onclick="document.getElementById('regForm').reset()">Reset</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="card fade-in-section" style="text-align:center;">
+            <h2>Contact & Fees</h2>
+            <div style="display:flex; justify-content:center; gap:3rem; flex-wrap:wrap; margin-top:2rem;">
+                <div>
+                    <h4 style="color:var(--accent-gold)">Location</h4>
+                    <p>C-Block Ground, TopCity-1</p>
+                </div>
+                <div>
+                    <h4 style="color:var(--accent-gold)">Direct Contact</h4>
+                    <p>0344-9058671 (Phone/WhatsApp)</p>
+                    <p>xyz@gmail.com</p>
+                </div>
+                <div>
+                    <h4 style="color:var(--accent-gold)">Payment</h4>
+                    <p>Easypaisa: 0344-9058671</p>
+                    <p class="unpaid">Due: 10th of each month</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer
+        style="text-align:center; padding:2rem; color:var(--text-muted); border-top:1px solid var(--border-light); margin-top:2rem;">
+        <p>© 2024 Super Starter Football Club. Built with love by Hafiz.</p>
+    </footer>
+
+    <!-- ADMIN MODAL -->
+    <div id="modalBackdrop" class="modal-backdrop">
+        <div class="modal">
+            <div style="display:flex; justify-content:space-between; margin-bottom:2rem;">
+                <h3 style="color:var(--accent-gold)">Admin Panel</h3>
+                <button id="closeAdminBtn" class="btn-muted">Close X</button>
+            </div>
+
+            <!-- LOGIN -->
+            <div id="loginBox">
+                <p>Enter credentials to access student management.</p>
+                <div style="display:flex; gap:1rem; margin-top:1rem;">
+                    <input id="adminUser" placeholder="Username">
+                    <input id="adminPass" placeholder="Password" type="password">
+                    <button class="btn" id="doLoginBtn">Login</button>
+                </div>
+                <p style="font-size:0.8rem; color:var(--text-muted); margin-top:0.5rem;">Default: admin / topcity1</p>
+            </div>
+
+            <!-- DASHBOARD -->
+            <div id="dashboard" class="hidden">
+                <div style="display:flex; gap:1rem; margin-bottom:1.5rem;">
+                    <button class="btn" id="btnAddStudent">Add Student</button>
+                    <button class="btn" id="btnAnnouncements">Announcements</button>
+                    <button class="btn" id="btnApprovals">Approvals</button>
+                    <button class="btn-muted" id="btnLogout">Logout</button>
+                </div>
+                <div id="adminContent" style="background:rgba(0,0,0,0.2); padding:1rem; border-radius:8px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LOGIC SCRIPT (Preserved & Enhanced) -->
+    <script>
+        /* --- 1. ANIMATIONS (New Modern Feature) --- */
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in-section').forEach(el => observer.observe(el));
+
+        /* --- 2. BACKEND INTEGRATION (Replaced localStorage) --- */
+        const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+            ? 'http://localhost:3000/api' 
+            : '/api'; 
+        const DEFAULT_ADMIN = { user: 'admin', pass: 'topcity1' };
+
+        // Navigation
+        function scrollToSection(id) {
+            const s = document.getElementById(id);
+            if (s) s.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        document.querySelectorAll('.nav-link').forEach(el => {
+            el.addEventListener('click', () => scrollToSection(el.getAttribute('data-target')));
+        });
+
+        // Admin Modal
+        const modal = document.getElementById('modalBackdrop');
+        document.getElementById('openAdminBtn').addEventListener('click', () => {
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            if (localStorage.getItem('ssf_admin_logged') === '1') showDashboard();
+            else showLogin();
+        });
+        document.getElementById('closeAdminBtn').addEventListener('click', () => {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        // --- STUDENTS & DATA ---
+
+        async function fetchStudents() {
+            try {
+                const res = await fetch(`${API_URL}/students`);
+                const json = await res.json();
+                return json.data || [];
+            } catch (e) {
+                console.error("Failed to fetch students", e);
+                return [];
+            }
+        }
+
+        async function renderStudents() {
+            const q = (document.getElementById('searchInput').value || '').toLowerCase();
+            const filter = document.getElementById('filterPaid').value;
+            const students = await fetchStudents(); // Fetch from DB
+
+            const tbody = document.querySelector('#studentsTable tbody');
+            tbody.innerHTML = '';
+
+            students.forEach((s, i) => {
+                if (filter === 'paid' && !s.paid) return;
+                if (filter === 'unpaid' && s.paid) return;
+                const hay = (s.full_name + ' ' + s.guardian + ' ' + (s.contact || '')).toLowerCase();
+                if (q && !hay.includes(q)) return;
+
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${i + 1}</td>
+                    <td style="font-weight:600; color:white;">${s.full_name}</td>
+                    <td>${s.age}</td>
+                    <td>${s.guardian}</td>
+                    <td>${s.contact}</td>
+                    <td>${s.experience || '-'}</td>
+                    <td class="${s.paid ? 'paid' : 'unpaid'}">${s.paid ? 'PAID' : 'UNPAID'}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        async function togglePaid(id) {
+            // This function was originally index-based. Now we need ID.
+            // Since the toggle was only in Admin, we'll update the Admin render to pass ID.
+        }
+
+        async function handleRegister(e) {
+            e.preventDefault();
+            const full = document.getElementById('fullName').value.trim();
+            const age = Number(document.getElementById('age').value);
+            const guardian = document.getElementById('guardian').value.trim();
+            const contact = document.getElementById('contact').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const exp = document.getElementById('experience').value.trim();
+
+            try {
+                const res = await fetch(`${API_URL}/register`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ full_name: full, age, guardian, contact, email, experience: exp })
+                });
+
+                if (res.ok) {
+                    document.getElementById('regForm').reset();
+                    alert('Application submitted! Pending admin approval.');
+                } else {
+                    alert('Error submitting application');
+                }
+            } catch (e) {
+                alert('Connection error. Is the server running?');
+            }
+        }
+
+        // --- ADMIN LOGIC ---
+        document.getElementById('doLoginBtn').addEventListener('click', () => {
+            const u = document.getElementById('adminUser').value.trim();
+            const p = document.getElementById('adminPass').value.trim();
+            if (u === DEFAULT_ADMIN.user && p === DEFAULT_ADMIN.pass) {
+                localStorage.setItem('ssf_admin_logged', '1');
+                document.getElementById('adminPass').value = '';
+                showDashboard();
+            } else {
+                alert('Invalid Credentials');
+            }
+        });
+
+        document.getElementById('btnLogout').addEventListener('click', () => {
+            localStorage.removeItem('ssf_admin_logged');
+            showLogin();
+        });
+
+        function showLogin() {
+            document.getElementById('loginBox').classList.remove('hidden');
+            document.getElementById('dashboard').classList.add('hidden');
+        }
+        function showDashboard() {
+            document.getElementById('loginBox').classList.add('hidden');
+            document.getElementById('dashboard').classList.remove('hidden');
+            renderAdminStudents();
+        }
+
+        async function renderAdminStudents() {
+            const students = await fetchStudents();
+            const cont = document.getElementById('adminContent');
+            cont.innerHTML = '<h4 style="margin-bottom:1rem; color:var(--accent-gold);">Manage Students</h4>';
+
+            const div = document.createElement('div');
+            div.style.overflowX = 'auto';
+
+            const tbl = document.createElement('table');
+            tbl.innerHTML = `<thead><tr><th>Name</th><th>Paid</th><th>Actions</th></tr></thead>`;
+            const tb = document.createElement('tbody');
+
+            students.forEach((s) => {
+                const row = document.createElement('tr');
+                // Use s.id for actions
+                row.innerHTML = `
+                    <td>${s.full_name}</td>
+                    <td class="${s.paid ? 'paid' : 'unpaid'}">${s.paid ? 'Yes' : 'No'}</td>
+                    <td style="display:flex; gap:0.5rem;">
+                        <button class="btn" style="font-size:0.7rem; padding:0.3rem 0.6rem;" onclick="editStudent(${s.id})">Edit</button>
+                        <button class="btn-muted" style="font-size:0.7rem; padding:0.3rem 0.6rem;" onclick="deleteStudent(${s.id})">Delete</button>
+                    </td>`;
+                tb.appendChild(row);
+            });
+            tbl.appendChild(tb);
+            div.appendChild(tbl);
+            cont.appendChild(div);
+        }
+
+        // --- NEW: Add Student Logic ---
+        document.getElementById('btnAddStudent').addEventListener('click', showAddStudent);
+
+        function showAddStudent() {
+            const cont = document.getElementById('adminContent');
+            cont.innerHTML = `<h4 style="color:var(--accent-gold); margin-bottom:1rem;">Add New Student</h4>
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem; margin-bottom:1rem;">
+                <input id="a_full" placeholder="Full Name">
+                <input id="a_age" placeholder="Age" type="number">
+                <input id="a_guardian" placeholder="Guardian">
+                <input id="a_contact" placeholder="Contact">
+            </div>
+            <select id="a_paid"><option value="false">Status: Unpaid</option><option value="true">Status: Paid</option></select>
+            <div style="margin-top:1rem; display:flex; gap:1rem;">
+                <button class="btn" onclick="addStudent()">Add Student</button> 
+                <button class="btn-muted" onclick="renderAdminStudents()">Cancel</button>
+            </div>`;
+        }
+
+        async function addStudent() {
+            const full = document.getElementById('a_full').value.trim();
+            const age = Number(document.getElementById('a_age').value);
+            const guardian = document.getElementById('a_guardian').value.trim();
+            const contact = document.getElementById('a_contact').value.trim();
+            const paid = (document.getElementById('a_paid').value === 'true');
+
+            if (!full || !guardian) { alert('Name and Guardian are required'); return; }
+
+            try {
+                await fetch(`${API_URL}/students`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ full, age, guardian, contact, experience: '', paid })
+                });
+                renderAdminStudents();
+                renderStudents();
+                alert('Student Added');
+            } catch (e) { alert('Error adding student'); }
+        }
+
+        // --- NEW: Edit Student Logic ---
+        async function editStudent(id) {
+            const students = await fetchStudents();
+            const s = students.find(x => x.id === id);
+            if (!s) return;
+
+            const cont = document.getElementById('adminContent');
+            cont.innerHTML = `<h4 style="color:var(--accent-gold); margin-bottom:1rem;">Edit Student</h4>
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem; margin-bottom:1rem;">
+                <input id="e_full" value="${s.full_name}" placeholder="Full Name">
+                <input id="e_age" value="${s.age}" placeholder="Age" type="number">
+                <input id="e_guardian" value="${s.guardian}" placeholder="Guardian">
+                <input id="e_contact" value="${s.contact}" placeholder="Contact">
+            </div>
+            <select id="e_paid"><option value="true">Status: Paid</option><option value="false">Status: Unpaid</option></select>
+            <div style="margin-top:1rem; display:flex; gap:1rem;">
+                <button class="btn" onclick="saveEdit(${s.id})">Save Changes</button> 
+                <button class="btn-muted" onclick="renderAdminStudents()">Cancel</button>
+            </div>`;
+            document.getElementById('e_paid').value = s.paid ? 'true' : 'false';
+        }
+
+        async function saveEdit(id) {
+            const full = document.getElementById('e_full').value.trim();
+            const age = Number(document.getElementById('e_age').value);
+            const guardian = document.getElementById('e_guardian').value.trim();
+            const contact = document.getElementById('e_contact').value.trim();
+            const paid = (document.getElementById('e_paid').value === 'true');
+
+            try {
+                await fetch(`${API_URL}/students/${id}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ full, age, guardian, contact, paid })
+                });
+                renderAdminStudents();
+                renderStudents();
+                alert('Changes Saved');
+            } catch (e) { alert('Error saving changes'); }
+        }
+
+        async function deleteStudent(id) {
+            if (!confirm('Delete this student?')) return;
+            try {
+                await fetch(`${API_URL}/students/${id}`, { method: 'DELETE' });
+                renderAdminStudents();
+                renderStudents();
+            } catch (e) { alert('Error deleting'); }
+        }
+
+        // --- NEW: Announcements Logic ---
+        document.getElementById('btnAnnouncements').addEventListener('click', showAnnouncements);
+
+        function showAnnouncements() {
+            const cont = document.getElementById('adminContent');
+            cont.innerHTML = `<h4 style="color:var(--accent-gold); margin-bottom:1rem;">Manage Announcements</h4>
+            <div style="display:flex; flex-direction:column; gap:0.5rem; margin-bottom:1rem;">
+                <input id="ann_title" placeholder="Announcement Title" required>
+                <input id="ann_text" placeholder="Announcement Text" required>
+                <label style="display:flex; align-items:center; gap:0.5rem; font-size:0.9rem;">
+                    <input type="checkbox" id="ann_broadcast"> Send Email Broadcast to All Students
+                </label>
+            </div>
+            <div style="margin-bottom:1rem; display:flex; gap:1rem;">
+                <button class="btn" onclick="addAnnouncement()">Post</button>
+                <button class="btn-muted" onclick="renderAdminStudents()">Back</button>
+            </div>
+            <div id="annListAdmin"></div>`;
+            renderAnnListAdmin();
+        }
+
+        async function fetchAnns() {
+            try {
+                const res = await fetch(`${API_URL}/announcements`);
+                const json = await res.json();
+                return json.data || [];
+            } catch (e) { return []; }
+        }
+
+        async function addAnnouncement() {
+            const title = document.getElementById('ann_title').value.trim();
+            const txt = document.getElementById('ann_text').value.trim();
+            const broadcastEmail = document.getElementById('ann_broadcast').checked;
+            if (!txt || !title) {
+                alert("Title and Text are required.");
+                return;
+            }
+
+            await fetch(`${API_URL}/announcements`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ title: title, text: txt, broadcastEmail: broadcastEmail })
+            });
+
+            showAnnouncements(); // Refresh
+            renderAnnouncements(); // Update main site
+        }
+
+        async function renderAnnListAdmin() {
+            const arr = await fetchAnns();
+            const box = document.getElementById('annListAdmin');
+            box.innerHTML = '';
+            arr.forEach((a) => {
+                const el = document.createElement('div');
+                el.style.borderBottom = '1px solid var(--border-light)';
+                el.style.padding = '0.5rem 0';
+                el.style.display = 'flex';
+                el.style.justifyContent = 'space-between';
+                el.innerHTML = `<span>${a.text}</span> <button class="btn-muted" style="font-size:0.7rem;" onclick="deleteAnn(${a.id})">Delete</button>`;
+                box.appendChild(el);
+            });
+        }
+
+        async function deleteAnn(id) {
+            await fetch(`${API_URL}/announcements/${id}`, { method: 'DELETE' });
+            renderAnnListAdmin();
+            renderAnnouncements();
+        }
+
+        // Announcements Main
+        async function renderAnnouncements() {
+            const anns = await fetchAnns();
+            // Sidebar Preview
+            const preview = document.getElementById('ann-preview');
+            preview.innerText = anns.length ? anns[0].text : 'No active announcements.';
+
+            // Full List
+            const list = document.getElementById('allAnnouncementsList');
+            if (list) {
+                list.innerHTML = '';
+                if (anns.length === 0) {
+                    list.innerHTML = '<p style="color:var(--text-muted);">No announcements yet.</p>';
+                } else {
+                    anns.forEach(a => {
+                        const date = new Date(a.timestamp).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
+                        const div = document.createElement('div');
+                        div.style.background = 'rgba(255,255,255,0.03)';
+                        div.style.padding = '1.5rem';
+                        div.style.borderRadius = '8px';
+                        div.style.borderLeft = '4px solid var(--accent-gold)';
+                        div.innerHTML = `
+                            <p style="font-size:0.85rem; color:var(--accent-gold); margin-bottom:0.5rem;">${date}</p>
+                            <p style="font-size:1.1rem; line-height:1.5;">${a.text}</p>
+                        `;
+                        list.appendChild(div);
+                    });
+                }
+            }
+        }
+
+        // --- NEW: Approvals Logic ---
+        async function fetchPending() {
+            try {
+                const res = await fetch(`${API_URL}/pending`);
+                const json = await res.json();
+                return json.data || [];
+            } catch (e) { return []; }
+        }
+
+        document.getElementById('btnApprovals').addEventListener('click', showApprovals);
+
+        async function showApprovals() {
+            const arr = await fetchPending();
+            const cont = document.getElementById('adminContent');
+            cont.innerHTML = `<h4 style="color:var(--accent-gold); margin-bottom:1rem;">Pending Approvals</h4>`;
+
+            if (arr.length === 0) {
+                cont.innerHTML += '<p>No pending applications.</p>';
+                return;
+            }
+
+            const div = document.createElement('div');
+            div.style.overflowX = 'auto';
+            const tbl = document.createElement('table');
+            tbl.innerHTML = `<thead><tr><th>Name</th><th>Details</th><th>Actions</th></tr></thead>`;
+            const tb = document.createElement('tbody');
+
+            arr.forEach((s) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${s.full} (${s.age})</td>
+                    <td style="font-size:0.9rem;">
+                        Parent: ${s.guardian}<br>
+                        Contact: ${s.contact}<br>
+                        Exp: ${s.experience || 'None'}
+                    </td>
+                    <td style="display:flex; gap:0.5rem; flex-direction:column;">
+                        <button class="btn" style="font-size:0.7rem; padding:0.3rem 0.6rem; background:var(--accent-green);" onclick="approveStudent(${s.id})">Approve</button>
+                        <button class="btn" style="font-size:0.7rem; padding:0.3rem 0.6rem; background:var(--accent-red);" onclick="rejectStudent(${s.id})">Reject</button>
+                    </td>`;
+                tb.appendChild(row);
+            });
+            tbl.appendChild(tb);
+            div.appendChild(tbl);
+            cont.appendChild(div);
+        }
+
+        async function approveStudent(id) {
+            try {
+                await fetch(`${API_URL}/approve/${id}`, { method: 'POST' });
+                renderStudents(); // Update public list
+                showApprovals(); // Refresh UI
+                alert(`Approved student`);
+            } catch (e) { alert('Error approving'); }
+        }
+
+        async function rejectStudent(id) {
+            if (!confirm('Reject this application?')) return;
+            try {
+                await fetch(`${API_URL}/reject/${id}`, { method: 'DELETE' });
+                showApprovals();
+            } catch (e) { alert('Error rejecting'); }
+        }
+
+        // Expose to window for inline HTML onclicks
+        window.scrollToSection = scrollToSection;
+        window.renderStudents = renderStudents;
+        window.togglePaid = togglePaid;
+        window.handleRegister = handleRegister;
+        window.deleteStudent = deleteStudent;
+        window.editStudent = editStudent;
+        window.saveEdit = saveEdit;
+        window.addStudent = addStudent;
+        window.addAnnouncement = addAnnouncement;
+        window.deleteAnn = deleteAnn;
+        window.approveStudent = approveStudent;
+        window.rejectStudent = rejectStudent;
+
+        // Init
+        renderStudents();
+        renderAnnouncements();
+    </script>
+</body>
+
+</html>
